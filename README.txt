@@ -1,7 +1,7 @@
-README from my portfolio website
+#README from my portfolio website
 
 
-Credits:
+##Credits:
 
 	Demo Images:
 		Unsplash (unsplash.com)
