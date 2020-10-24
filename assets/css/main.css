@@ -2089,6 +2089,7 @@ input, select, textarea {
 		text-decoration: none;
 		text-transform: uppercase;
 		white-space: nowrap;
+		
 	}
 
 		input[type="submit"].icon:before,
@@ -4686,4 +4687,8 @@ input, select, textarea {
 			visibility: visible;
 		}
 
+	}
+
+	#brief-description{
+		background-color: rgba(0, 0, 0, 0.856);
 	}
