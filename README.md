@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Sibusiso-M
 - 👀 I’m interested in problems solving, reading and algorthm challenges.
 - 🌱 I’m currently learning CompTIA A+, Python and content creation space.
-- 💞️ I’m looking to collaborate on ground breaking projects.
+- 💞️ I’m looking to collaborate on any new and exiting projects.
 
 <!---
 Sibusiso-M/Sibusiso-M is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
