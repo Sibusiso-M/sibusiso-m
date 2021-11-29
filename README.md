@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Sibusiso-M
 - 👀 I’m interested in problems solving, reading and algorthm challenges.
-- 🌱 I’m currently learning CompTIA A+, Python and content creation space.
+- 🌱 I’m currently learning Javascript.
 - 💞️ I’m looking to collaborate on any new and exiting projects.
 - 📌 Link to my personal webpage https://sibusiso-m.github.io/sibusiso-m/
  
