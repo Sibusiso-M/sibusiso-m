@@ -4391,3 +4391,8 @@ input, select, textarea {
 	#brief-description{
 		background-color: rgba(0, 0, 0, 0.856);
 	}
+
+	#contact-header {
+		text-align: center;
+		padding : 5%
+	}
