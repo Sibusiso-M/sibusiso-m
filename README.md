@@ -3,7 +3,7 @@
 - 🌱 I’m currently learning JavaScript.
 - ️💞️ I’m keen to collaborate on any new and existing projects and technologies.
 - 📌 Link to my personal webpage https://sibusiso-m.github.io/sibusiso-m/.
-- :rewind: Fun fact this website is also featured in history via the WayBackMachine.org as of FEBRUARY 26, 2022
+- :rewind: Fun fact this website is also featured in history via the WayBackMachine.org as of February 26, 2022
 https://web.archive.org/web/*/https://sibusiso-m.github.io/sibusiso-m/
 
 
