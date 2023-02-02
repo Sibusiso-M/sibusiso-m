@@ -4525,3 +4525,9 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
   text-align: center;
   padding: 5%;
 }
+
+h3#about-me-section {
+  text-transform: none;
+  font-size: calc(1rem + .6vw);
+
+}
