@@ -4531,3 +4531,11 @@ h3#about-me-section {
   font-size: calc(1rem + .6vw);
 
 }
+
+#skills-section{
+  padding-top: 5%;
+}
+
+#projects-header{
+  padding-top: 8%;
+}
