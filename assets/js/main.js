@@ -63,22 +63,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		$this.each(function() {
 
-			var $t = $(this),
-				$bg = $('<div class="bg"></div>').appendTo($t),
-				on, off;
+			// var $t = $(this),
+			// 	$bg = $('<div class="bg"></div>').appendTo($t),
+			// 	on, off;
 
 			on = function() {
 
-				$bg
-					.removeClass('fixed')
-					.css('transform', 'matrix(1,0,0,1,0,0)');
+				// $bg
+				// 	.removeClass('fixed')
+				// 	.css('transform', 'matrix(1,0,0,1,0,0)');
 
 				$window
 					.on('scroll._parallax', function() {
 
 						var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
 
-						$bg.css('transform', 'matrix(1,0,0,1,0,' + (pos * intensity) + ')');
+						// $bg.css('transform', 'matrix(1,0,0,1,0,' + (pos * intensity) + ')');
 
 					});
 
@@ -86,9 +86,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			off = function() {
 
-				$bg
-					.addClass('fixed')
-					.css('transform', 'none');
+				// $bg
+				// 	.addClass('fixed')
+				// 	.css('transform', 'none');
 
 				$window
 					.off('scroll._parallax');
