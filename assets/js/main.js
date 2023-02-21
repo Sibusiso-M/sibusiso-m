@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	var	$window = $(window),
 		$body = $('body'),
-		$wrapper = $('#wrapper'),
+		// $wrapper = $('#wrapper'),
 		$header = $('#header'),
 		$nav = $('#nav'),
 		$main = $('#main'),
@@ -133,7 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		$('.scrolly').scrolly();
 
 	// Background.
-		$wrapper._parallax(0.925);
+		// $wrapper._parallax(0.925); // original
+		$body._parallax(0.925);
 
 	// Nav Panel.
 
