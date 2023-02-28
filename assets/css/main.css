@@ -179,8 +179,8 @@ body {
   background-image: url("../../images/overlay.png"),
     linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url("../../images/bg.jpg");
-   background-size: cover;
-  background-position: center , center, top center;
+  background-size: cover;
+  background-position: center, center, top center;
   background-repeat: repeat, no-repeat, no-repeat;
   background-attachment: fixed;
 }
@@ -3355,11 +3355,9 @@ table.alt tbody tr td {
 }
 
 #wrapper > .bg {
-
 }
 
 #wrapper > .bg.fixed {
- 
 }
 
 #wrapper.fade-in:before {
@@ -3876,6 +3874,10 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
   -ms-flex-shrink: 0;
   flex-shrink: 0;
   margin-bottom: 0;
+}
+
+#navbar_top {
+  top: 0;
 }
 
 @media screen and (max-width: 980px) {
@@ -4521,14 +4523,13 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 
 h3#about-me-section {
   text-transform: none;
-  font-size: calc(1rem + .6vw);
-
+  font-size: calc(1rem + 0.6vw);
 }
 
-#skills-section{
+#skills-section {
   padding-top: 5%;
 }
 
-#projects-header{
+#projects-header {
   padding-top: 8%;
 }
