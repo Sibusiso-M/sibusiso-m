@@ -1,254 +1,235 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-	window.addEventListener('scroll', function () {
-
-		if (window.scrollY > 0) {
-			document.getElementById('navbar_top').classList.add('fixed-top');
-			// add padding top to show content behind navbar
-			navbar_height = document.querySelector('.navbar').offsetHeight;
-			document.body.style.paddingTop = navbar_height + 'px';
-		} else {
-			document.getElementById('navbar_top').classList.remove('fixed-top');
-			// remove padding top from body
-			document.body.style.paddingTop = '0';
-		}
-	});
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 0) {
+      document.getElementById("navbar_top").classList.add("fixed-top");
+      // add padding top to show content behind navbar
+      navbar_height = document.querySelector(".navbar").offsetHeight;
+      document.body.style.paddingTop = navbar_height + "px";
+    } else {
+      document.getElementById("navbar_top").classList.remove("fixed-top");
+      // remove padding top from body
+      document.body.style.paddingTop = "0";
+    }
+  });
 });
 // DOMContentLoaded  end
 
-(function($) {
+(function ($) {
+  var $window = $(window),
+    $body = $("body"),
+    // $wrapper = $('#wrapper'),
+    $header = $("#header"),
+    $nav = $("#nav"),
+    $main = $("#main"),
+    $navPanelToggle,
+    $navPanel,
+    $navPanelInner;
 
-	var	$window = $(window),
-		$body = $('body'),
-		// $wrapper = $('#wrapper'),
-		$header = $('#header'),
-		$nav = $('#nav'),
-		$main = $('#main'),
-		$navPanelToggle, $navPanel, $navPanelInner;
+  // Breakpoints.
+  breakpoints({
+    default: ["1681px", null],
+    xlarge: ["1281px", "1680px"],
+    large: ["981px", "1280px"],
+    medium: ["737px", "980px"],
+    small: ["481px", "736px"],
+    xsmall: ["361px", "480px"],
+    xxsmall: [null, "360px"],
+  });
 
-	// Breakpoints.
-		breakpoints({
-			default:   ['1681px',   null       ],
-			xlarge:    ['1281px',   '1680px'   ],
-			large:     ['981px',    '1280px'   ],
-			medium:    ['737px',    '980px'    ],
-			small:     ['481px',    '736px'    ],
-			xsmall:    ['361px',    '480px'    ],
-			xxsmall:   [null,       '360px'    ]
-		});
+  /**
+   * Applies parallax scrolling to an element's background image.
+   * @return {jQuery} jQuery object.
+   */
+  // 	$.fn._parallax = function(intensity) {
 
-	/**
-	 * Applies parallax scrolling to an element's background image.
-	 * @return {jQuery} jQuery object.
-	 */
-	$.fn._parallax = function(intensity) {
+  // 		var	$window = $(window),
+  // 			$this = $(this);
 
-		var	$window = $(window),
-			$this = $(this);
+  // 		if (this.length == 0 || intensity === 0)
+  // 			return $this;
 
-		if (this.length == 0 || intensity === 0)
-			return $this;
+  // 		if (this.length > 1) {
 
-		if (this.length > 1) {
+  // 			for (var i=0; i < this.length; i++)
+  // 				$(this[i])._parallax(intensity);
 
-			for (var i=0; i < this.length; i++)
-				$(this[i])._parallax(intensity);
+  // 			return $this;
 
-			return $this;
+  // 		}
 
-		}
+  // 		if (!intensity)
+  // 			intensity = 0.25;
 
-		if (!intensity)
-			intensity = 0.25;
+  // 		$this.each(function() {
+  //  			var $t = $(this),
+  // 				$body = $('body').appendTo($t),
+  // 				on, off;
 
-		$this.each(function() {
- 			var $t = $(this),
-				$body = $('body').appendTo($t),
-				on, off;
+  // 			on = function() {
+  //  				$body
+  // 					.removeClass('fixed')
+  // 					.css('transform', 'matrix(1,0,0,1,0,0)');
 
-			on = function() {
- 				$body
-					.removeClass('fixed')
-					.css('transform', 'matrix(1,0,0,1,0,0)');
+  // 				$window
+  // 					.on('scroll._parallax', function() {
 
-				$window
-					.on('scroll._parallax', function() {
+  // 						var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
 
-						var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
+  // 						// changed
+  // 						$body.css('transform', 'matrix(1,0,0,1,0,' + (pos * intensity) + ')');
 
-						// changed  
-						$body.css('transform', 'matrix(1,0,0,1,0,' + (pos * intensity) + ')');
+  // 					});
 
-					});
+  // 			};
 
-			};
+  // 			off = function() {
+  // //sibu
+  // 				$body
+  // 					.addClass('fixed')
+  // 					.css('transform', 'none');
 
-			off = function() {
-//sibu
-				$body
-					.addClass('fixed')
-					.css('transform', 'none');
+  // 				$window
+  // 					.off('scroll._parallax');
 
-				$window
-					.off('scroll._parallax');
+  // 			};
 
-			};
+  // 			// Disable parallax on ..
+  // 				if (browser.name == 'ie'			// IE
+  // 				||	browser.name == 'edge'			// Edge
+  // 				||	window.devicePixelRatio > 1		// Retina/HiDPI (= poor performance)
+  // 				||	browser.mobile)					// Mobile devices
+  // 					off();
 
-			// Disable parallax on ..
-				if (browser.name == 'ie'			// IE
-				||	browser.name == 'edge'			// Edge
-				||	window.devicePixelRatio > 1		// Retina/HiDPI (= poor performance)
-				||	browser.mobile)					// Mobile devices
-					off();
+  // 			// Enable everywhere else.
+  // 				else {
 
-			// Enable everywhere else.
-				else {
+  // 					breakpoints.on('>large', on);
+  // 					breakpoints.on('<=large', off);
 
-					breakpoints.on('>large', on);
-					breakpoints.on('<=large', off);
+  // 				}
 
-				}
+  // 		});
 
-		});
+  // 		$window
+  // 			.off('load._parallax resize._parallax')
+  // 			.on('load._parallax resize._parallax', function() {
+  // 				$window.trigger('scroll');
+  // 			});
 
-		$window
-			.off('load._parallax resize._parallax')
-			.on('load._parallax resize._parallax', function() {
-				$window.trigger('scroll');
-			});
+  // 		return $(this);
 
-		return $(this);
+  // 	};
 
-	};
+  // Play initial animations on page load.
+  $window.on("load", function () {
+    window.setTimeout(function () {
+      $body.removeClass("is-preload");
+    }, 100);
+  });
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+  // Scrolly.
+  $(".scrolly").scrolly();
 
-	// Scrolly.
-		$('.scrolly').scrolly();
+  // Background.
+  $wrapper._parallax(0.925); // original
+  $body._parallax(0.925);
 
-	// Background.
-		// $wrapper._parallax(0.925); // original
-		$body._parallax(0.925);
+  // Nav Panel.
 
-	// Nav Panel.
+  // Panel.
+  $navPanel = $(
+    '<div id="navPanel">' +
+      "<nav>" +
+      "</nav>" +
+      '<a href="#navPanel" class="close"></a>' +
+      "</div>"
+  )
+    .appendTo($body)
+    .panel({
+      delay: 500,
+      hideOnClick: true,
+      hideOnSwipe: true,
+      resetScroll: true,
+      resetForms: true,
+      side: "right",
+      target: $body,
+      visibleClass: "is-navPanel-visible",
+    });
 
+  // Get inner.
+  $navPanelInner = $navPanel.children("nav");
 
-		// Panel.
-			$navPanel = $(
-				'<div id="navPanel">' +
-					'<nav>' +
-					'</nav>' +
-					'<a href="#navPanel" class="close"></a>' +
-				'</div>'
-			)
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-					target: $body,
-					visibleClass: 'is-navPanel-visible'
-				});
+  // Move nav content on breakpoint change.
+  var $navContent = $nav.children();
 
-			// Get inner.
-				$navPanelInner = $navPanel.children('nav');
+  breakpoints.on(">medium", function () {
+    // NavPanel -> Nav.
+    $navContent.appendTo($nav);
 
-			// Move nav content on breakpoint change.
-				var $navContent = $nav.children();
+    // Flip icon classes.
+    $nav.find(".icons, .icon").removeClass("alt");
+  });
 
-				breakpoints.on('>medium', function() {
+  breakpoints.on("<=medium", function () {
+    // Nav -> NavPanel.
+    $navContent.appendTo($navPanelInner);
 
-					// NavPanel -> Nav.
-						$navContent.appendTo($nav);
+    // Flip icon classes.
+    $navPanelInner.find(".icons, .icon").addClass("alt");
+  });
 
-					// Flip icon classes.
-						$nav.find('.icons, .icon')
-							.removeClass('alt');
+  // Hack: Disable transitions on WP.
+  if (browser.os == "wp" && browser.osVersion < 10)
+    $navPanel.css("transition", "none");
 
-				});
+  // Intro.
+  var $intro = $("#intro");
 
-				breakpoints.on('<=medium', function() {
+  if ($intro.length > 0) {
+    // Hack: Fix flex min-height on IE.
+    if (browser.name == "ie") {
+      $window
+        .on("resize.ie-intro-fix", function () {
+          var h = $intro.height();
 
-					// Nav -> NavPanel.
-						$navContent.appendTo($navPanelInner);
+          if (h > $window.height()) $intro.css("height", "auto");
+          else $intro.css("height", h);
+        })
+        .trigger("resize.ie-intro-fix");
+    }
 
-					// Flip icon classes.
-						$navPanelInner.find('.icons, .icon')
-							.addClass('alt');
+    // Hide intro on scroll (> small).
+    breakpoints.on(">small", function () {
+      $main.unscrollex();
 
-				});
+      $main.scrollex({
+        mode: "bottom",
+        top: "25vh",
+        bottom: "-50vh",
+        enter: function () {
+          $intro.addClass("hidden");
+        },
+        leave: function () {
+          $intro.removeClass("hidden");
+        },
+      });
+    });
 
-			// Hack: Disable transitions on WP.
-				if (browser.os == 'wp'
-				&&	browser.osVersion < 10)
-					$navPanel
-						.css('transition', 'none');
+    // Hide intro on scroll (<= small).
+    breakpoints.on("<=small", function () {
+      $main.unscrollex();
 
-	// Intro.
-		var $intro = $('#intro');
-
-		if ($intro.length > 0) {
-
-			// Hack: Fix flex min-height on IE.
-				if (browser.name == 'ie') {
-					$window.on('resize.ie-intro-fix', function() {
-
-						var h = $intro.height();
-
-						if (h > $window.height())
-							$intro.css('height', 'auto');
-						else
-							$intro.css('height', h);
-
-					}).trigger('resize.ie-intro-fix');
-				}
-
-			// Hide intro on scroll (> small).
-				breakpoints.on('>small', function() {
-
-					$main.unscrollex();
-
-					$main.scrollex({
-						mode: 'bottom',
-						top: '25vh',
-						bottom: '-50vh',
-						enter: function() {
-							$intro.addClass('hidden');
-						},
-						leave: function() {
-							$intro.removeClass('hidden');
-						}
-					});
-
-				});
-
-			// Hide intro on scroll (<= small).
-				breakpoints.on('<=small', function() {
-
-					$main.unscrollex();
-
-					$main.scrollex({
-						mode: 'middle',
-						top: '15vh',
-						bottom: '-15vh',
-						enter: function() {
-							$intro.addClass('hidden');
-						},
-						leave: function() {
-							$intro.removeClass('hidden');
-						}
-					});
-
-			});
-
-		}
-
+      $main.scrollex({
+        mode: "middle",
+        top: "15vh",
+        bottom: "-15vh",
+        enter: function () {
+          $intro.addClass("hidden");
+        },
+        leave: function () {
+          $intro.removeClass("hidden");
+        },
+      });
+    });
+  }
 })(jQuery);
