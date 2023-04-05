@@ -131,8 +131,8 @@ document.addEventListener("DOMContentLoaded", function () {
   $(".scrolly").scrolly();
 
   // Background.
-  $wrapper._parallax(0.925); // original
-  $body._parallax(0.925);
+  $wrapper._parallax(1); // original (0.985)
+  $body._parallax(1);
 
   // Nav Panel.
 
