@@ -21,7 +21,7 @@
     <!-- Wrapper -->
     <div id="wrapper" class="fade-in">
         <!-- Nav -->
-        <nav id="navbar_top" class="fixed-top navbar navbar-expand-md navbar-light bg-light">
+        <nav id="navbar_top" class="nav fixed-top navbar navbar-expand-md navbar-light bg-light">
             <div class="container">
                 <a class="navbar_brand" href="#">
                     <h3>Sibusiso Mdlovu
@@ -35,9 +35,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="main_nav">
                     <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item"><a class="nav-link" href="#">
+                                Home </a></li>
                         <li class="nav-item"><a class="nav-link" href="#about-me-section"> About Me </a></li>
-                        <li class="nav-item"><a class="nav-link" href="#skills-section"> Skills </a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects-header"> Projects </a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="#skills-section-test"> Skills </a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="#projects-section"> Projects </a></li>
+
                         <li class="nav-item"><a class="nav-link" href="#contact-section"> Contact </a></li>
                     </ul>
                 </div>
@@ -46,43 +51,49 @@
         <!-- Intro -->
         <div id="intro">
             <h1>Sibusiso Mdlovu</h1>
-            <p id="brief-description"><span>&#8226;</span> I'm A Full Stack Web Developer From Pretoria,South Africa
+            <p id="brief-description"><span>&#8226;</span> I'm A Full Stack Web Developer From Pretoria, South Africa
                 <span>&#8226;</span>
             </p>
             <ul class="actions">
                 <li>
-                    <a href="#about-me-section" class="button icon solid solo fa-arrow-down scrolly">Continue</a>
+                    <a href="#about-me-section" class="button icon solid solo fa-arrow-down scrolly"
+                        onclick="scrollToSection(event, 'about-me-section')">Continue</a>
                 </li>
             </ul>
         </div>
         <!-- Main -->
         <div id="main">
             <!-- Featured Post -->
-            <article class="post featured">
-                <header class="major">
-                    <p id="about-me-section"> I am a passionate developer, but more importantly, I'm passionate
+            <article id="about-me-section" class="post featured">
+                <h2 id="about-me-header" class="h2"> About Me </h2>
+
+                <header class="major post featured">
+                    <p> JavaScript I am a passionate developer, but more importantly, I'm passionate
                         about
                         innovation and technology.<br> I believe technology should be used to improve quality of all
                         life and look forward towards playing a role in doing so.
                     </p>
-
                 </header>
+            </article>
+            <article id="skills-section-test" class="post featured">
                 <h2 id="skills-header" class="h2">Skills</h2>
                 <p id="skills-section">
                     JavaScript, HTML 5, CSS, MySQL, PostgreSQL, PHP, API, Apache web server, Python, Git,
                     Node.JS &
                     Express, Docker, Jasmine, WordPress, Object Orientated Programming.
                 </p>
-                <a id="download-cv-body" href="assets/Sibusiso_M_Mdlovu_CV.pdf" download class="button icon solid fa-download">My
+                <a id="download-cv-body" href="assets/Sibusiso_M_Mdlovu_CV.pdf" download
+                    class="button icon solid fa-download">My
                     CV</a>
             </article>
-
-            <header class="major" id='projects-section'>
-                <h2 class="h2" id="projects-header">Projects</h2>
-            </header>
-
+            <article id='projects-section' class="post featured">
+                <header>
+                    <h2 class="h2" id="projects-header">Projects</h2>
+                </header>
+            </article>
             <!-- Posts -->
             <div class="posts">
+
                 <article>
                     <header>
                         <h3>
@@ -164,6 +175,22 @@
             </section>
         </footer>
     </div>
+
+    <script>
+        //Stop scroll anchor overlap
+        function scrollToSection(event, sectionId) {
+            event.preventDefault();
+            const navHeight = document.querySelector('navbar_top').offsetHeight;
+            console.log(navHeight);
+            const section = document.getElementById(sectionId);
+            const sectionTop = section.offsetTop - navHeight;
+            window.scrollTo({
+                top: sectionTop,
+                behavior: 'smooth'
+            });
+        }
+
+    </script>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>

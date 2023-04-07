@@ -1,8 +1,11 @@
 (function ($) {
   var $window = $(window),
     $body = $("body"),
+    $wrapper = $("#wrapper"),
+    $header = $("#header"),
     $nav = $("#nav"),
     $main = $("#main"),
+    $navPanelToggle,
     $navPanel,
     $navPanelInner;
 
@@ -18,7 +21,6 @@
   });
 
   // Play initial animations on page load.
-
   $window.on("load", function () {
     window.setTimeout(function () {
       $body.removeClass("is-preload");
@@ -29,6 +31,8 @@
   $(".scrolly").scrolly();
 
   // Background.
+  $wrapper._parallax(0.925); // original
+  $body._parallax(0.925);
 
   // Nav Panel.
 
