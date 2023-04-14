@@ -4604,11 +4604,15 @@ a#header_download_cv {
 
 h2#skills-header,
 #projects-header.h2,
-#contact-header,
+h2#contact-header,
 #about-me-header {
   font-size: 3rem;
   line-height: 1.1;
   margin: 2rem 0 2rem 0;
+}
+h2#contact-header {
+  margin: 2rem 0 2rem 0;
+  padding-bottom: 2rem;
 }
 
 a#download-cv-body {
@@ -4639,3 +4643,18 @@ li#download-button.nav-item {
     margin: 0;
   }
 }
+#contact-section {
+}
+
+/* #main-space{
+  background-color: #18bfef;
+  display: block;
+  margin-top: 4rem;
+} */
+
+@media screen and (max-width: 767px) {
+  h2#contact-header {
+    margin: 4rem 0 2rem 0;
+    padding-bottom: 2rem;
+  }
+} 

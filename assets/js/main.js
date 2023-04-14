@@ -1,5 +1,5 @@
 (function ($) {
-  var $window = $(window),
+  let $window = $(window),
     $body = $("body"),
     $wrapper = $("#wrapper"),
     $header = $("#header"),
