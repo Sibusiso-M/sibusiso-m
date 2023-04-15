@@ -31,8 +31,8 @@
   $(".scrolly").scrolly();
 
   // Background.
-  $wrapper._parallax(0.925); // original
-  $body._parallax(0.925);
+  // $wrapper._parallax(0.925); // original
+  // $body._parallax(0.925);
 
   // Nav Panel.
 
@@ -132,4 +132,19 @@
       });
     });
   }
+
+  // Add click event listener to all nav links
+  $(".navbar-nav a").on("click", function () {
+    closeDropdown();
+  });
+
+  $(".navbar_brand").on("click", function () {
+    closeDropdown();
+  });
+
+  const closeDropdown = () => {
+    $(".navbar-collapse").removeClass("show");
+
+    $(this).attr("aria-expanded", "false");
+  };
 })(jQuery);
