@@ -1,6 +1,6 @@
 - 👋 Hi, I’m Sibusiso Mdlovu (@Sibusiso-M).
 - 👀 I’m interested in Web Development, problem-solving, reading (tech, business, personal development, comedy, documentation *not really) and algorithm challenges.
-- 🌱 I’m currently learning JavaScript.
+- 🌱 I’m currently learning JavaScript, React, Redux, React Native.
 - ️💞️ I’m keen to collaborate on any new and existing projects and technologies.
 - 📌 Link to my personal webpage https://sibusiso-m.github.io/sibusiso-m/.
 - :rewind: Fun fact this website is also featured in history via the WayBackMachine.org as of February 26, 2022
